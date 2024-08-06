@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+      next: (data: any) => setTodos([...data.items]),
     });
   }, []);
 
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <Authenticator>
-      {({ signOut, user }) => (
+      {({ user }) => (
         <main>
           <h1>{user?.signInDetails?.loginId}'s todos</h1>
           <h1>My todos</h1>
